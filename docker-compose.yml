@@ -1,5 +1,5 @@
 web:
-    image: registry.cn-hangzhou.aliyuncs.com/web_nginx_php7/alpine:first
+    image: registry.cn-hangzhou.aliyuncs.com/web_nginx_php7/alpine:upgrade
     ports:
       - "80:80"
     links:
