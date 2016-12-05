@@ -1,0 +1,16 @@
+web:
+    image: registry.cn-hangzhou.aliyuncs.com/web_nginx_php7/alpine:first
+    ports:
+      - "80:80"
+    links:
+      - redis:redis_instance
+    volumes:
+      - /home/test/web/logs/:/log
+      - /home/test/web/www:/var/www/html
+      - /home/test/web/nginx_config:/etc/nginx/sites-available
+      
+redis:
+    image: redis:alpine
+    volumes:
+      - /home/test/web/data/:/data
+
