@@ -4,6 +4,7 @@ web:
       - "80:80"
     links:
       - redis:redis_instance
+      - mongodb:mongo_instance
     volumes:
       - /home/test/web/logs/:/log
       - /home/test/web/www:/var/www/html
@@ -14,3 +15,5 @@ redis:
     volumes:
       - /home/test/web/data/:/data
 
+mongodb:
+    image: mongo
