@@ -1,0 +1,19 @@
+
+mongodb 副本级 读写分离
+
+##每个mongodb实例必须初始化同一个 副本级 这里取名为rs0
+
+mongod --port 27017 --dbpath "D:\set up\mongodb\data" --replSet rs0
+
+##登录其中任何一台mongodb实例，执行
+
+1. mongo
+
+2. rs.initiate({"_id": "rs0","members": [{"_id": 1,"host": "192.168.218.131:27017","priority": 2},{"_id": 2,"host": "192.168.218.131:27018","priority": 1},{"_id": 3,"host": "192.168.218.131:27019","priority": 1}]})
+
+##redis 一主多从
+
+在从redis上 只需
+
+slaveof 192.168.218.131  6379
+

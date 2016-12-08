@@ -9,11 +9,36 @@ web:
       - /home/test/web/logs/:/log
       - /home/test/web/www:/var/www/html
       - /home/test/web/nginx_config:/etc/nginx/sites-available
-      
+    
 redis:
     image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - /home/test/web/data/:/data
+redis1:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - /home/test/web/data/:/data
+redis2:
+    image: redis:alpine
+    ports:
+      - "6381:6379"
     volumes:
       - /home/test/web/data/:/data
 
 mongodb:
-    image: mongo
+    build: ./mongo
+    ports:
+      - "27017:27017"
+mongodb1:
+    build: ./mongo
+    ports:
+      - "27018:27017"
+mongodb2:
+    build: ./mongo
+    ports:
+      - "27019:27017"
+
