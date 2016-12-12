@@ -13,7 +13,7 @@ mongod --port 27017 --dbpath "D:\set up\mongodb\data" --replSet rs0
 
 ##redis 一主多从
 
-在从redis上 只需
+在所有从redis上 只需
 
 slaveof 192.168.218.131  6379
 
